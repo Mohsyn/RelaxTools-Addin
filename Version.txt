@@ -1,0 +1,303 @@
+﻿2022/07/29(fri) RelaxTools-Addin Version 4.28.0(RustRemover) 
+◇Added functionality
+・RelaxTools Addin Added anthropomorphic character RelaxTools-chan (tentative name).
+- Added a version that does not copy the format for exchanging two ranges. #83
+- Added three hash functions to user-defined functions.
+  However, .Net3.5 must be installed.
+　GetSHA256/GetSHA384/GetSHA512
+
+2022/05/10(tue) RelaxTools-Addin Version 4.27.6(RustRemover)
+◇Bug fixes
+・Page numbers shift when creating a table of contents #84
+
+2021/04/08(thu) RelaxTools-Addin Version 4.27.5(RustRemover)
+◇Bug fixes
+・Wrong spelling of function names in the RelaxApps tab #74
+・VBA source export typo #73
+・When saving a file on OneDrive with the TimeLeap function enabled, a "File Not Found" dialog appears #75
+→Since history is created on OneDrive/SharePoint, it is excluded from Timeleap.
+　　This information is now displayed in Help.
+2021/03/07(sun) RelaxTools-Addin Version 4.27.4(RustRemover) 
+◇Bug fixes
+・Grep replacement cannot replace files with "read-only recommended" setting #54
+
+2021/03/06(sat) RelaxTools-Addin Version 4.27.3(RustRemover)
+◇Bug fixes
+- Fixed typo in VBA step count.
+- Typo #71 in expanding the height of merged cells
+- When creating a folder tree, hyperlinks do not work if there is a "#" in the file name #72
+
+2020/12/27(sun) RelaxTools-Addin Version 4.27.2(RustRemover)
+◇Bug fixes
+・Fixed an issue where the year display in the TimeLeap list of "TimeLeap" was the total day of the year, which was a silly number such as 456 years ago.
+- Fixed a bug where "Overwrite this book with the latest book" of "TimeLeap" did not work when performed for "000".
+
+◇Specification changes
+- No longer creates history when "Overwrite this workbook with the latest workbook" of "TimeLeap" is performed.
+→Simplification of specifications. Since a history was created each time it was overwritten, the number of files with the same content increased, making it inconvenient to use.
+- Changed the initial save folder of "TimeLeap".
+"%appdata%\RelaxTools-AddinTimeLeap" was corrected to "%appdata%\RelaxTools-Addin\TimeLeap".
+If you have never changed the TimeLeap settings in previous versions,
+The latter folder will automatically become the TimeLeap folder.
+Please be careful as changing the folder will make it appear as if the history has disappeared.
+If you want to enable previous history, copy the file from the original folder or change the TimeLeap folder.
+Please specify the original folder.
+- Changed the installer's add-in folder from "%appdata%Microsoft\addins" to "Application.UserLibraryPath".
+
+2020/12/06(sun) RelaxTools-Addin Version 4.27.1(RustRemover) 
+◇Additional functions
+・Added "RelaxApps" → "Background settings"
+This is a function that displays a text string in the background to alert you. Please note that it will not be printed.
+"Cell merging prohibition" is a feature invented by Ryu Ryu (Twitter@blacklist_ryu).
+Taking advantage of this, a part of the ``Draft for unified rules for the notation of machine-readable data'' by Taro Kono, Minister of State for Special Missions of the Cabinet Office.
+Added as a display function.
+
+2020/12/05(sat) RelaxTools-Addin Version 4.26.6(RustRemover)
+◇Bug fixes
+- Fixed a bug where unnecessary blank lines were created when exporting key definitions, making it impossible to import them.
+(Code not modified due to incorrect line break in version definition part)
+
+2020/11/19(thu) RelaxTools-Addin Version 4.26.5(RustRemover)
+◇Bug fixes
+・Degraded with #67 where two sheets are pasted in Excel screenshot mode.
+The settings screen cannot be closed because the screenshot mode wait time check does not work
+Fixed the bug.
+
+2020/11/18(wed) RelaxTools-Addin Version 4.26.2(RustRemover)
+◇Bug fixes
+- Fixed #67 where two sheets are pasted in Excel screenshot mode.
+　The message will be pasted after waiting 500ms after it comes from the clipboard.
+The waiting time can be modified on the settings screen.
+- Corrected that Excel resident mode may be activated twice in RelaxTools common settings.
+
+2020/11/12(thu) RelaxTools-Addin Version 4.26.1(RustRemover) 
+◇Additional functions
+- Added "Excel resident mode" to options.
+To improve response at startup, prevent Excel from closing even if all workbooks are closed.
+Please close the minimized empty window when exiting Excel.
+Please stop using if you experience any side effects.
+- Changed the initial display of the Tortoise series to hidden.
+◇Bug fixes
+- Fixed a bug that caused an error when deleting a line outside of UsedRange.
+
+2020/11/03(tue) RelaxTools-Addin Version 4.25.6(RustRemover)
+◇Bug fixes
+- Fixed a bug that caused an error when there was an expression that returned a string during markdown conversion.
+-Deleted the link to BBS from backstage due to the abolition of bulletin board.
+- Removed support for Excel2010 as support from Microsoft has ended.
+
+2020/10/04(sun) RelaxTools-Addin Version 4.25.5(RustRemover)
+◇Bug fixes
+・Problem where multiple cells are not deselected when setting A1 #65 #66
+・Error when selecting a shape and editing it with an external editor #62
+
+2020/04/17(fri) RelaxTools-Addin Version 4.25.4(RustRemover) 
+◇Bug fixes
+・Fixed an issue where "Rename active workbook" treats anything after the first period in the file name as an extension #59
+- Line breaks in cells are now converted to <br> in Markdown conversion #56
+- Another sheet appears in the search results during the search process when the search range is set to "selected range" #55
+-Fixed a bug that did not work properly with paragraph numbers (roman numerals ivx)
+
+2018/12/10(mon) RelaxTools-Addin Version 4.25.3(RustRemover)
+◇Bug fixes
+-Fixed an error that would occur when changing the category in "Favorites".
+
+2018/12/03(mon) RelaxTools-Addin Version 4.25.2(RustRemover)
+◇Bug fixes
+- Fixed Undo. Fixed an issue where if you execute Undo after moving to another workbook, the operation is performed without returning to the original sheet, so you cannot tell whether you have returned or not.
+- Fixed to disable the mouse wheel because the sticky note search becomes unstable when running in the 64-bit version.
+-Revised the error handling for adding rows, deleting rows, and copying rows, and now displays a warning message when a large number of rows are selected.
+
+2018/10/28(sun) RelaxTools-Addin Version 4.25.1(RustRemover)
+◇Functional improvements
+- Corrected so that when opening a book in favorites, it will be registered in the history.
+- Added RelaxTools.xlam path when running from ribbon and OnAction/OnKey/OnUndo/OnRepeat/OnTIme.
+Fixed so that macros with the same name would not malfunction.
+◇Bug fixes
+・Part 2 of my attempt to reduce the index error when creating a table of contents.
+
+2018/10/21(sun) RelaxTools-Addin Version 4.25.0(RustRemover)
+◇Additional functions
+- Display a preview of the page with the active cell.
+It is convenient because you can quickly check if the characters are out of order.
+◇Bug fixes
+- I intended to reduce the index error when creating a table of contents.
+
+2018/10/13(sat) RelaxTools-Addin Version 4.24.0(RustRemover)
+◇Additional functions
+- Added a function that allows you to freely change the size of merged cells.
+"Expand the width of merged cells"
+"Reducing the width of merged cells"
+"Extend the height of merged cells"
+"Reducing the height of merged cells"
+
+2018/10/01(mon) RelaxTools-Addin Version 4.23.3(RustRemover)
+◇Bug fixes
+- Degrade of 4.23.1. Fixed a bug where the history display of "TimeLeap" did not work in the 32-bit version.
+
+2018/09/30(sun) RelaxTools-Addin Version 4.23.2(RustRemover)
+◇Functional improvements
+-Reviewed mouse wheel processing. Mouse wheel handling is now possible even in combinations of non-modal windows.
+Improved to ensure stable operation (32bit version only).
+Mouse wheel processing in non-modal windows is unstable in the 64-bit version, so it remains disabled.
+
+2018/09/29(sat) RelaxTools-Addin Version 4.23.1(RustRemover) 
+◇Bug fixes
+- Enabled the 64-bit version of the mouse wheel, which was disabled in 4.18.3.
+- Corrected a bug that caused a run-time error when executing "No character modification & regular diet (automatic)" for the shape in "Modification of specified character string".
+◇Functional improvements
+- Measures to speed up the history display of "TimeLeap".
+
+2018/09/22(sat) RelaxTools-Addin Version 4.23.0(RustRemover)
+◇Functional improvements
+- Fixed a bug where the focus would be removed from Excel when starting up with the "crosshair cursor".
+- Unified "Modification of specified string" to "Regular expression search for cell shape".
+Character modification is now possible with shapes and regular expressions.
+
+2018/09/02(sun) RelaxTools-Addin Version 4.22.3(RustRemover)
+◇Functional improvements
+- Changed "Open books with the same name for reference and compare" to "Compare books with the same name side by side".
+・It was necessary to start Excel in advance for "Open a workbook with the same name for reference", but now it will start.
+
+2018/08/30(thu) RelaxTools-Addin Version 4.22.2(RustRemover)
+◇Functional improvements
+- Added "Open book with the same name for reference and compare" to the Explorer right-click menu.
+After opening the workbook with the same name, use the Excel function "View" → "Compare side by side".
+
+2018/08/26(sun) RelaxTools-Addin Version 4.22.1(RustRemover)
+◇Functional improvements
+- Below, the names of the current functions have been changed to match the addition of "Open a book with the same name for reference".
+Changed "Open book (book with the same name)" to "Open book for reference (book with the same name)".
+Changed "Open a copy of the current workbook" to "Open a copy of the current workbook for reference".
+In addition, the judgment window for MDI compatibility in 2010 and earlier was corrected so that it would not be displayed in 2013 and later.
+- Added "Open book with the same name for reference (Excel only)" in "Favorites".
+
+2018/08/25(sat) RelaxTools-Addin Version 4.22.0(RustRemover) 
+◇New features
+・Some knowledge of Excel. This is a workaround for the issue where a book with the same name cannot be opened.
+Added "Open book with the same name for reference" to the Explorer right-click menu.
+When opening a book, add "(for reference)" to the beginning of the book name and open it as read-only.
+Even if you already have a book with the same name open, you can rename it and open it.
+◇Functional improvements
+・Added "(1)" to the paragraph number.
+- Added range specification with "Modification of specified string". Can be modified within a specified range. Added button to undo formatting.
+◇Bug fixes
+-Fixed a bug where color was not applied when there were multiple targets in one cell with "Modify specified string".
+
+2018/08/19(sun) RelaxTools-Addin Version 4.21.0(RustRemover)
+◇New features
+-Added "Move selected cell left", "Move selected cell right", "Move selected cell up", and "Move selected cell down".
+Combined cells can also be moved up/down/left/right. However, if there are characters or merged cells at the destination, you cannot move.
+- Added "Modification of specified string". Search for the specified string in the sheet, modify text (bold, italic, underline,
+　Text color). Expression results and numbers cannot be modified with characters.
+- Corrected so that "Open the folder of the book being edited" selects the file in Explorer.
+- Corrected so that "Open Book Folder" in "Favorites" selects the file in Explorer.
+
+2018/06/29(fri) RelaxTools-Addin Version 4.20.0(RustRemover)
+◇Functional improvements
+- Changed Grep for Excel files to multi-process version.
+In addition, a setting to search only the first sheet has been added.
+Added setting to retrieve the cell contents at the specified relative position of the hit cell.
+Fixed a bug where hyperlink startup was delayed when lines were deleted from Grep results.
+Fixed so that file type settings can be saved.
+◇Bug fixes
+- Fixed a bug where the search would be interrupted if there was a formula error in the sheet that was searched with regular expressions using cell shape regular expression search/replace.
+Changed the regular expression search method from FIND type to SecialCells type.
+◇New features
+- Added top alignment and left alignment for shapes/images. Unlike the standard function, the first selected shape/image
+Align the top and left positions.
+
+2018/06/12(wed) RelaxTools-Addin Version 4.19.1(RustRemover)
+◇Bug fixes
+- Fixed a bug where add-ins were not saved when TimeLeap was enabled.
+- Fixed a bug where the extension was not added if there was a dot in addition to the extension when dividing the book into sheets.
+
+2018/06/10(sun) RelaxTools-Addin Version 4.19.0(RustRemover)
+◇Functional improvements
+- Measures against double pressing of the ENTER key when using cell shape regular expression search/replacement
+- Changed the crosshair cursor method (changed from shape to form)
+・It can also be used on the share sheet.
+・Undo was not possible, but now it can be used.
+・It can now be used even if the sheet is protected.
+
+2018/04/15(sun) RelaxTools-Addin Version 4.18.3(RustRemover)
+◇Temporary response
+- In Excel 2016 (2016.9126.2109), mouse wheel processing caused an abnormal termination, so the processing was disabled.
+
+2018/03/22(thu) RelaxTools-Addin Version 4.18.2(RustRemover)
+◇Bug fixes
+-Fixed a bug where the arrow of the emphasis shape became larger.
+
+2018/03/21(wed) RelaxTools-Addin Version 4.18.1(RustRemover)
+◇Functional improvements
+- Fixed so that slash (/) can be used in shortcuts.
+-Added "Hyperring broken link check" to static check.
+◇Bug fixes
+-Fixed a bug where an error message was displayed even if RelaxTools was successfully restarted.
+Also fixed so that a completion message is displayed.
+・For emphasis shapes, if the default shape is set to match the size of the text depending on the book,
+Fixed a bug where super small shapes were pasted.
+・Supports when files are updated with repository contents due to SVN lock. Edited to reopen.
+
+2018/02/24(sat) RelaxTools-Addin Version 4.18.0(RustRemover)
+◇New features
+- Renewed the book generation management function. Changed to TimeLeap function.
+If you enable it, you can immediately return to the book before saving.
+◇Bug fixes
+-Fixed a bug that caused an error when displaying sticky note icons.
+
+2018/02/06(tue) RelaxTools-Addin Version 4.17.4(RustRemover)
+◇Bug fixes
+- Fixed a bug where the loading process of Excel work file "~$" would stop during Grep or page acquisition.
+
+2018/02/06(tue) RelaxTools-Addin Version 4.17.3(RustRemover)
+◇Bug fixes
+-Fixed a bug where an empty sheet was counted as one page when getting the number of pages.
+
+2018/02/04(sun) RelaxTools-Addin Version 4.17.2(RustRemover)
+◇New features
+- Added processing to merge books by specifying a folder.
+◇Bug fixes
+-Fixed a bug where Undo did not work when checking the existence of a full-width character string.
+◇Functional improvements
+・Improved to get the number of pages for each sheet in the case of an Excel workbook.
+- Improved the ability to set the transparency of the crosshair cursor guide.
+- Faster processing for selection ranges that include merged cells.
+- Simplified the check process for saving A1. Try to speed it up.
+- Changed the icon slightly.
+・I secretly deleted the document proofreading because it was no longer useful.
+
+2018/01/21(sun) RelaxTools-Addin Version 4.17.0(RustRemover) 
+◇New features
+・Shape/image size matching. Added a function to match the size of the first selected shape/image.
+◇Functional improvements
+- Corrected so that newline characters (\n) can be inserted in the following functions.
+ "Add string to beginning of cell"
+ "Add string to end of cell"
+ "Add string to nth character of cell"
+
+2018/01/13(sat) RelaxTools-Addin Version 4.16.0(RustRemover)
+◇New features
+- Added Fast Pin function to favorites. When you add a file to your favorite category "Fast Pin",
+The file will now be displayed in the Favorites menu.
+After that, you can easily open the file by running it from the shortcut or quick access toolbar.
+◇Specification changes
+- Removed Add Favorites from Favorites menu. Deprecated because it can only be added to specified categories.
+- Change or replace the wording of the favorite right-click menu.
+◇Bug fixes
+- Processing to enclose the "Favorites" folder in < > made file access slow and processing heavy.
+Improved folder detection.
+
+2017/12/26(tue) RelaxTools-Addin Version 4.15.0(RustRemover)
+◇Functional improvements
+- Changed "Paste for merged cells (value)" to "Extended paste (value)".
+File names in Explorer can also be copied.
+- Added "Copy cell (value)". This is useful for patterns that would cause trouble if formatting is enabled in other applications.
+-Improved so that you can copy (file copy) to Explorer with CTRL+C on the "Favorites" screen.
+For clients that do not support file copy when pasting file names to the clipboard,
+Fixed to copy text file name.
+- Fixed so that you can select all files with CTRL+A in "Favorites".
+- It was difficult to understand when adding a folder to "Favorites", so I enclosed it in < >.
+
+
+
